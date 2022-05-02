@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import fakeLogin from './fakeLogin';
 
+// create an initialState objecto for useReducer
 const initialState = {
   username: '',
   password: '',
@@ -8,7 +9,8 @@ const initialState = {
   error: null,
 };
 
-function reducer(state, action) {
+// reducer function to change useState
+const reducer = (state, action) => {
   switch (action.type) {
     case 'beforeLogin':
       return {
@@ -38,14 +40,28 @@ function reducer(state, action) {
     default:
       return state;
   }
-}
+};
 
 export default function Login() {
+  // useReducer to simplify useState
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  /*
+  No longer needed
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  */
 
   function handleLogin(e) {
     e.preventDefault();
 
+    /*
+    No longer needed
+    setIsLoading(true);
+    setError(null);
+    */
     dispatch({ type: 'beforeLogin' });
 
     fakeLogin(state.username, state.password)

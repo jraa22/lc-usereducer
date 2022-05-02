@@ -1,7 +1,7 @@
 export default function fakeLogin(username, password) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (username === 'andre' && password === 'password') {
+      if (username === 'roberto' && password === 'password') {
         resolve();
       } else {
         reject();
